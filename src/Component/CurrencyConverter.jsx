@@ -11,9 +11,17 @@ const currencyData = [
 const withCurrency = (BaseComponent) => (
   class Currency extends Component {
     state = {
-      currencyChosen : false,
       selectedCurrency: 'Select Currency',
       amount: 0
+    }
+
+    handleAmountIncrease = () => this.setState({amount: this.state.amount + 1});
+
+    handleAmountDecrease = () => this.setState({amount: this.state.amount - 1});
+
+    handleOptionSelect = (e) => {
+      const userValue = e.target.value;
+      this.setState({selectedCurrency: userValue});
     }
 
     render() {
