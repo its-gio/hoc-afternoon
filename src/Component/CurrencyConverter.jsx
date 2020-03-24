@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CurrencyDisplay from './CurrencyDisplay';
 
 const currencyData = [
 	{ name: 'Japanese Yen', symbol: '¥', rate: 113.6, id: 0 },
@@ -25,7 +26,7 @@ const withCurrency = (BaseComponent) => (
     }
 
     render() {
-      const currencyList = currencyData.map(currency => <option key={currency.id} value={i}>{currency.name}</option>)
+      const currencyList = currencyData.map((currency, i) => <option key={currency.id} value={i}>{currency.name}</option>)
       return (
         <>
           <select onChange={this.handleOptionSelect} value={this.state.selectedCurrency}>
@@ -45,3 +46,7 @@ const withCurrency = (BaseComponent) => (
     }
   }
 )
+
+const ExchangedCurrency = withCurrency(CurrencyDisplay);
+
+export default ExchangedCurrency;
