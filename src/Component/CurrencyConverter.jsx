@@ -28,13 +28,13 @@ const withCurrency = (BaseComponent) => (
       const currencyList = currencyData.map(currency => <option key={currency.id} value={i}>{currency.name}</option>)
       return (
         <>
-          <select value={this.state.selectedCurrency}>
+          <select onChange={this.handleOptionSelect} value={this.state.selectedCurrency}>
             <option disabled value='Select Currency'>Select Currency</option>
             {currencyList}
           </select>
 
-          <button>+</button>
-          <button>-</button>
+          <button onClick={this.handleAmountIncrease}>+</button>
+          <button onClick={this.handleAmountDecrease}>-</button>
 
           <BaseComponent
 						currency={currencyData[this.state.selectedCurrency]}
